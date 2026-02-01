@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Glamify Beauty</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Glamify Beauty</a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#products" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Brand</a></li>
+                    <li class="nav-item"><a href="index.html#newsletter" class="nav-link">Newsletter</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="icon-link" id="search-toggle"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-link wishlist-toggle"><i class="far fa-heart"></i><span
+                        class="wishlist-count">0</span></a>
+                <a href="#" class="icon-link shop-bag"><i class="fas fa-shopping-bag"></i><span
+                        class="bag-count">0</span></a>
+                <a href="auth.html" class="icon-link"><i class="fas fa-user-circle"></i></a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section product-details" id="details-section">
+            <div class="container details-container" id="details-content">
+                <!-- Content injected via JS -->
+                <div class="loading">Refining details...</div>
+            </div>
+        </section>
+
+        <!-- Recommended Products -->
+        <section class="section recommended reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">You May Also Like</h2>
+                </div>
+                <div class="product-grid" id="recommended-grid">
+                    <!-- Dynamic suggested products -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="footer-logo">Glamify Beauty</a>
+                <p class="footer-desc">redefining luxury for the modern era.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Shop</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#products">New Arrivals</a></li>
+                    <li><a href="index.html#products">Best Sellers</a></li>
+                    <li><a href="index.html#products">Sets & Gifts</a></li>
+                    <li><a href="index.html#products">Sale</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Glamify Beauty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sidebars & Overlays (Reused) -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <!-- Re-used structure handled by script.js -->
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" id="search-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="search-container">
+            <h2 class="search-title">Discover Glamify</h2>
+            <div class="search-form">
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Search products, rituals, collections...">
+                <button id="search-submit-btn" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Details-specific logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+
+            if (productId) {
+                renderProductDetails(productId);
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+
+        function renderProductDetails(id) {
+            const product = products.find(p => p.id === id);
+            const container = document.getElementById('details-content');
+
+            if (!product) {
+                container.innerHTML = '<h2>Product not found</h2>';
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="details-grid">
+                    <div class="details-image-wrapper reveal">
+                        <img src="${product.image}" alt="${product.name}" class="details-img">
+                    </div>
+                    <div class="details-info reveal">
+                        <span class="product-category">${product.category}</span>
+                        <h1 class="details-title">${product.name}</h1>
+                        <div class="details-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(24 Reviews)</span>
+                        </div>
+                        <p class="details-price">$${product.price.toFixed(2)}</p>
+                        <p class="details-desc">${product.description}</p>
+                        
+                        <div class="details-tabs">
+                            <div class="details-tab active" data-tab="usage">The Ritual</div>
+                            <div class="details-tab" data-tab="ingredients">Key Ingredients</div>
+                        </div>
+                        <div class="tab-content show" id="tab-usage">
+                            <p>${product.usage || 'Apply as desired to enhance your natural beauty.'}</p>
+                        </div>
+                        <div class="tab-content" id="tab-ingredients">
+                            <p>${product.ingredients || 'Natural extracts and premium minerals.'}</p>
+                        </div>
+
+                        <div class="details-actions">
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="qty-minus">-</button>
+                                <span id="qty-val">1</span>
+                                <button class="qty-btn" id="qty-plus">+</button>
+                            </div>
+                            <button class="btn btn-primary btn-add-bag" data-id="${product.id}">Add to Bag</button>
+                            <button class="action-btn wishlist-btn" data-id="${product.id}"><i class="far fa-heart"></i></button>
+                        </div>
+
+                        <div class="details-extra">
+                            <div class="extra-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Complimentary Shipping</span>
+                            </div>
+                            <div class="extra-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Vegan & Cruelty Free</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Initialize buttons
+            document.querySelector('.btn-add-bag').addEventListener('click', () => {
+                addToCart(product);
+                if (typeof cartSidebar !== 'undefined') cartSidebar.classList.add('show-cart');
+            });
+
+            document.querySelector('.wishlist-btn').addEventListener('click', (e) => {
+                const icon = e.currentTarget.querySelector('i');
+                const isInWishlist = toggleWishlistById(product.id, product);
+                if (isInWishlist) {
+                    icon.classList.replace('far', 'fas');
+                } else {
+                    icon.classList.replace('fas', 'far');
+                }
+            });
+
+            // Tabs Logic
+            const tabs = document.querySelectorAll('.details-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Hide all content
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('show'));
+
+                    // Add active to clicked
+                    tab.classList.add('active');
+                    // Show target content
+                    const tabName = tab.getAttribute('data-tab');
+                    document.getElementById(`tab-${tabName}`).classList.add('show');
+                });
+            });
+
+            // Suggested products
+            renderRecommended(product.category, product.id);
+        }
+
+        function renderRecommended(category, currentId) {
+            const suggested = products.filter(p => p.category === category && p.id !== currentId).slice(0, 3);
+            const grid = document.getElementById('recommended-grid');
+            if (!grid) return;
+
+            suggested.forEach(product => {
+                const article = document.createElement('article');
+                article.classList.add('product-card');
+                article.innerHTML = `
+                    <div class="product-img-wrapper">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">${product.name}</h3>
+                        <span class="product-price">$${product.price.toFixed(2)}</span>
+                        <a href="details.html?id=${product.id}" class="btn btn-enroll">Details</a>
+                    </div>
+                `;
+                grid.appendChild(article);
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Aurum Beauté</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Simple Header -->
+    <header class="checkout-header">
+        <div class="container">
+            <a href="index.html" class="logo">Aurum Beauté</a>
+            <span class="secure-badge"><i class="fas fa-lock"></i> Secure Checkout</span>
+        </div>
+    </header>
+
+    <main class="section checkout-section">
+        <div class="container checkout-container">
+            <!-- Left: Billing Form -->
+            <div class="checkout-form-col">
+                <h2 class="section-title">Billing Details</h2>
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Jane Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="jane@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <input type="text" id="address" required placeholder="123 Luxury Lane">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" required>
+                        </div>
+                    </div>
+
+                    <h3 class="payment-title">Payment Method</h3>
+                    <div class="payment-card-preview">
+                        <i class="far fa-credit-card"></i>
+                        <span>All transitions are secure and encrypted.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card">Card Number</label>
+                        <input type="text" id="card" placeholder="0000 0000 0000 0000">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry">Expiry</label>
+                            <input type="text" id="expiry" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvc">CVC</label>
+                            <input type="text" id="cvc" placeholder="123">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary btn-block">Place Order</button>
+                    <a href="index.html" class="return-link">Return to Shop</a>
+                </form>
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="checkout-summary-col">
+                <div class="order-summary-card">
+                    <h3 class="summary-title">Order Summary</h3>
+                    <div id="order-items" class="order-items">
+                        <!-- Items injected via JS -->
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="summary-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total-row">
+                        <span>Total</span>
+                        <span id="summary-total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="checkout.js"></script>
+</body>
+
+</html>
