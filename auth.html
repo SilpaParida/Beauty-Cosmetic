@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamify Identity | Luxury Authentication</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page">
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <div class="container auth-container">
+        <div class="auth-brand">
+            <a href="index.html" class="logo">Glamify Beauty</a>
+        </div>
+
+        <div class="auth-card-wrapper">
+            <!-- Login State -->
+            <div class="auth-card" id="login-card">
+                <div class="auth-card-content">
+                    <h2 class="auth-title">Welcome Back</h2>
+                    <p class="auth-subtitle">Enter your details to access your private collection.</p>
+
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" required>
+                            <a href="#" class="forgot-link">Forgot?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-3d">
+                            <span class="btn-3d-front">Sign In</span>
+                        </button>
+                    </form>
+
+                    <p class="auth-toggle-text">
+                        Discover a new experience. <a href="#" id="to-signup">Create an account</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Signup State -->
+            <div class="auth-card hidden" id="signup-card">
+                <div class="auth-card-content">
+                    <h2 class="auth-title">Join The Inner Circle</h2>
+                    <p class="auth-subtitle">Create an account to receive personalized luxury experiences.</p>
+
+                    <form id="signup-form" class="auth-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Create Password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-3d">
+                            <span class="btn-3d-front">Create Identity</span>
+                        </button>
+                    </form>
+
+                    <p class="auth-toggle-text">
+                        Already a member? <a href="#" id="to-login">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content goes here -->
+    </footer>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" id="search-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="search-container">
+            <h2 class="search-title">Discover Glamify</h2>
+            <div class="search-form">
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Search products, rituals, collections...">
+                <button id="search-submit-btn" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Inline Auth Switch Logic for immediate feedback
+        const toSignup = document.getElementById('to-signup');
+        const toLogin = document.getElementById('to-login');
+        const loginCard = document.getElementById('login-card');
+        const signupCard = document.getElementById('signup-card');
+
+        toSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginCard.classList.add('hidden');
+            signupCard.classList.remove('hidden');
+        });
+
+        toLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupCard.classList.add('hidden');
+            loginCard.classList.remove('hidden');
+        });
+
+        // Simulated Submissions
+        document.querySelectorAll('.auth-form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const btnFront = btn.querySelector('.btn-3d-front');
+                const originalText = btnFront.innerText;
+
+                btnFront.innerText = 'Verifying...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    alert('Identity verified. Welcome to Glamify Beauty.');
+                    window.location.href = 'index.html';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brand | Glamify Beauty</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Glamify Beauty</a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#products" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="brand.html" class="nav-link active">Brand</a></li>
+                    <li class="nav-item"><a href="index.html#newsletter" class="nav-link">Newsletter</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="icon-link" id="search-toggle"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-link wishlist-toggle"><i class="far fa-heart"></i><span
+                        class="wishlist-count">0</span></a>
+                <a href="#" class="icon-link shop-bag"><i class="fas fa-shopping-bag"></i><span
+                        class="bag-count">0</span></a>
+                <a href="auth.html" class="icon-link"><i class="fas fa-user-circle"></i></a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Brand Manifesto -->
+        <section class="section brand-manifesto reveal">
+            <div class="container text-center">
+                <span class="section-subtitle">Since 2026</span>
+                <h1 class="brand-hero-title">The Art of <em>Glamify.</em></h1>
+                <p class="brand-hero-desc">Luxury isn't just about what you wear; it's about how you feel. We create
+                    products that are an extension of your spirit.</p>
+            </div>
+        </section>
+
+        <!-- Brand Visuals -->
+        <section class="section brand-visuals reveal">
+            <div class="container brand-mosaic">
+                <div class="mosaic-item item-large">
+                    <img src="hero_banner_1769851616780.png" alt="Brand Mood 1">
+                </div>
+                <div class="mosaic-item">
+                    <img src="product_serum_1769851736666.png" alt="Brand Mood 2">
+                </div>
+                <div class="mosaic-item">
+                    <img src="product_lipstick_1769851684169.png" alt="Brand Mood 3">
+                </div>
+                <div class="mosaic-item item-medium">
+                    <img src="product_powder_1769851832176.png" alt="Brand Mood 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Elements -->
+        <section class="section brand-elements reveal">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Our Signature Elements</h2>
+                </div>
+                <div class="elements-list">
+                    <div class="element-item">
+                        <span class="element-number">01</span>
+                        <div class="element-content">
+                            <h3>Gold-Infused Formulas</h3>
+                            <p>We believe in the power of fine metals. Our signature items are infused with micronized
+                                24k gold for unmatched radiance.</p>
+                        </div>
+                    </div>
+                    <div class="element-item">
+                        <span class="element-number">02</span>
+                        <div class="element-content">
+                            <h3>Atelier Craftsmanship</h3>
+                            <p>Each product is hand-finished in our New York atelier, ensuring the highest level of
+                                detail in every bottle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        ...
+    </footer>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" id="search-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="search-container">
+            <h2 class="search-title">Discover Glamify</h2>
+            <div class="search-form">
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Search products, rituals, collections...">
+                <button id="search-submit-btn" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
